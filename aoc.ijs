@@ -16,3 +16,15 @@ max =: ".max
 c =: ({."1)c
 echo 'Answer 2, part 1: ', ": +/ (min&<: *. <:&max) +/ |:c=pwd
 echo 'Answer 2, part 2: ', ": +/ 1 = +/ |:c=(1 -~ min,.max) ({" 0 1) pwd
+
+
+NB. Question 3.
+forest =: > LF splitstring 1!:1 <'in3.txt'
+a3 =: 4 : 0
+	f =. forest{~(I.0=x|i.#forest)	NB. Keep every x'th line
+	i =. y * i.#f
+	+/'#'=({."1) i (|."0 1) f
+)
+
+echo 'Answer 3, part 1: ', ": 1 a3 3
+echo 'Answer 3, part 2: ', ": */ (1 1 1 1 2) (a3 " 0 0) (1 3 5 7 1)
